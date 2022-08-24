@@ -95,10 +95,10 @@ class DLPF():
                     self.Y_without_shunt[start_idx, end_idx] += -y*(1/(t*np.exp(-1j*theta)))
                     self.Y_without_shunt[end_idx, start_idx] += -y*(1/(t*np.exp(1j*theta)))
                     self.Y_without_shunt[end_idx, end_idx] += y
-                    self.Y[start_idx, start_idx] +=( y + half_b)*1/t**2
+                    self.Y[start_idx, start_idx] +=( y + half_b*(1j))*1/t**2
                     self.Y[start_idx, end_idx] += -y*(1/(t*np.exp(-1j*theta)))
                     self.Y[end_idx, start_idx] += -y*(1/(t*np.exp(1j*theta)))
-                    self.Y[end_idx, end_idx] += y + half_b
+                    self.Y[end_idx, end_idx] += y + half_b*(1j)
                 #self.G=np.real(self.Y_without_shunt)
         #self.B_without_shunt=np.imag(self.Y_without_shunt)
                 #self.Y=self.Y_without_shunt.copy()
